@@ -19,7 +19,7 @@ let text=computerPlay()
 console.log(text) */
 
 
- function playRound(playerSelection, computerSelection) {
+ function playRound(playerSelection, computerSelection) { //basic rng of game
     if (computerSelection == "scissors!" && playerSelection == "rokku!"){
         return("u win!")
     }
@@ -42,7 +42,7 @@ console.log(text) */
         return("draw, play again.")
     }
 }
-function output(){
+function output(){ //outputs the game
     console.log("player: " + playerSelection)
     console.log("computer: " + computerSelection)
     console.log(playRound(playerSelection, computerSelection))
@@ -50,4 +50,23 @@ function output(){
 
 const playerSelection="rokku!"
 const computerSelection = computerPlay()
-output()
+
+// full round of games
+let playercount=0
+let compcount=0
+function game(){
+while(playercount<=3 && compcount<=3){
+    output()
+    if(output()=="computer wins!!"){
+        compcount++
+        console.log("player" + playercount)
+        console.log("computer" + compcount)
+    }
+    if(output()=="u win!!"){
+        playercount++
+        console.log("player" + playercount)
+        console.log("computer" + compcount)
+    }
+}
+game()
+}
