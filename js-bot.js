@@ -33,7 +33,7 @@ console.log(text) */
         return("u win!")
     }
     else if (computerSelection == "paper!" && playerSelection == "rokku!"){
-        return("computer wins!!")
+        return("computer wins!")
     }
     else if (computerSelection == "rokku!" && playerSelection == "paper!"){
         return("u win!")
@@ -42,31 +42,44 @@ console.log(text) */
         return("draw, play again.")
     }
 }
-function output(){ //outputs the game
-    console.log("player: " + playerSelection)
-    console.log("computer: " + computerSelection)
-    console.log(playRound(playerSelection, computerSelection))
-    }
-
-const playerSelection="rokku!"
-const computerSelection = computerPlay()
 
 // full round of games
 let playercount=0
 let compcount=0
-function game(){
-while(playercount<=3 && compcount<=3){
-    output()
-    if(output()=="computer wins!!"){
-        compcount++
-        console.log("player" + playercount)
-        console.log("computer" + compcount)
-    }
-    if(output()=="u win!!"){
-        playercount++
-        console.log("player" + playercount)
-        console.log("computer" + compcount)
-    }
-}
+let gamecount=0
 game()
+if(playercount<compcount){
+    console.log("COMPUTER WINS THE GAME!")
+}
+else if (compcount<playercount){
+    console.log("YOU WIN THE GAME!")
+}
+else{console.log("DRAW, NO ONE WINS.")}
+
+function game(){
+while(gamecount<5){
+    const playerSelection="rokku!"
+    const computerSelection = computerPlay()
+    console.log("player: " + playerSelection)
+    console.log("computer: " + computerSelection)
+    console.log(playRound(playerSelection, computerSelection))
+
+    if(playRound(playerSelection, computerSelection)=="computer wins!"){
+        compcount++
+        console.log("player = " + playercount)
+        console.log("computer = " + compcount)
+    }
+    if(playRound(playerSelection, computerSelection)=="u win!"){
+        playercount++
+        console.log("player = " + playercount)
+        console.log("computer = " + compcount)
+    }
+    if(playRound(playerSelection, computerSelection)=="draw, play again."){
+        console.log("player = " + playercount)
+        console.log("computer = " + compcount)
+    }
+
+    gamecount++
+    console.log("\n")
+}
 }
