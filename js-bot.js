@@ -1,3 +1,21 @@
+
+// full round of games
+let playercount=0
+let compcount=0
+let gamecount=0
+
+game()
+
+if(playercount<compcount){
+          console.log("COMPUTER WINS THE GAME!")
+      }
+else if (compcount<playercount){
+          console.log("YOU WIN THE GAME!")
+      }
+else{console.log("DRAW, NO ONE WINS.")}
+
+/* =========== functions ========== */
+
 function computerPlay(){
     let ans=["rock", "paper", "scissor"]
     let ran=Math.floor(Math.random()*3)+1
@@ -23,14 +41,14 @@ console.log(text) */
     if (computerSelection == "scissors!" && playerSelection == "rokku!"){
         return("u win!")
     }
-    else if (computerSelection == "rokku!" && playerSelection == "scissors!"){
+    else if (computerSelection == "rokku!" && playerSelection == "scissor!"){
         return("computer wins!")
     }
     else if (computerSelection == "paper!" && playerSelection == "scissor!"){
-        return("computer wins!")
-    }
-    else if (computerSelection == "scissor!" && playerSelection == "paper!"){
         return("u win!")
+    }
+    else if (computerSelection == "scissors!" && playerSelection == "paper!"){
+        return("computer wins!")
     }
     else if (computerSelection == "paper!" && playerSelection == "rokku!"){
         return("computer wins!")
@@ -42,23 +60,11 @@ console.log(text) */
         return("draw, play again.")
     }
 }
-
-// full round of games
-let playercount=0
-let compcount=0
-let gamecount=0
-game()
-if(playercount<compcount){
-    console.log("COMPUTER WINS THE GAME!")
-}
-else if (compcount<playercount){
-    console.log("YOU WIN THE GAME!")
-}
-else{console.log("DRAW, NO ONE WINS.")}
-
 function game(){
 while(gamecount<5){
-    const playerSelection="rokku!"
+    let playerSelection= prompt("Enter your hand (rokku, paper, scissor): ")
+    playerSelection = playerSelection.toLowerCase()
+    playerSelection = playerSelection + "!"
     const computerSelection = computerPlay()
     console.log("player: " + playerSelection)
     console.log("computer: " + computerSelection)
