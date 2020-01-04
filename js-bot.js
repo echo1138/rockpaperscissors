@@ -1,21 +1,20 @@
 
-// full round of games
+// set variables
 let playercount=0
 let compcount=0
 let gamecount=0
 
-game()
-
-if(playercount<compcount){
-          console.log("COMPUTER WINS THE GAME!")
-      }
-else if (compcount<playercount){
-          console.log("YOU WIN THE GAME!")
-      }
-else{console.log("DRAW, NO ONE WINS.")}
+startgame()
+function startgame(){
+let butt=document.querySelector(`.start`) // back tick makes a difference?
+butt.addEventListener("click", function(){
+    game()
+}
+)}
 
 /* =========== functions ========== */
 
+// AI chooses their hand
 function computerPlay(){
     let ans=["rock", "paper", "scissor"]
     let ran=Math.floor(Math.random()*3)+1
@@ -31,13 +30,9 @@ function computerPlay(){
             break;
     }
 }
-/*
-======= TESTING
-let text=computerPlay()
-console.log(text) */
 
-
- function playRound(playerSelection, computerSelection) { //basic rng of game
+// basic rng function
+ function playRound(playerSelection, computerSelection) { 
     if (computerSelection == "scissors!" && playerSelection == "rokku!"){
         return("u win!")
     }
@@ -60,11 +55,38 @@ console.log(text) */
         return("draw, play again.")
     }
 }
+
+// play game!
 function game(){
 while(gamecount<5){
-    let playerSelection= prompt("Enter your hand (rokku, paper, scissor): ")
-    playerSelection = playerSelection.toLowerCase()
-    playerSelection = playerSelection + "!"
+    playerSelection="start"
+    while ( playerSelection == "start" ){ // this will force the player to input a correct choice
+     playerSelection = prompt("what is ur hand?")
+     if (playerSelection != null){
+        playerSelection = playerSelection.toLowerCase()
+     }
+     if (playerSelection == "rokku"){
+         playerSelection = "rokku!"
+     }
+     else if (playerSelection == "scissor"){
+         playerSelection = "scissor!"
+     }
+     else if (playerSelection == "paper"){
+         playerSelection = "paper!"
+    }
+    else if ( playerSelection == null){
+        gamecount = 0
+        playercount = 0
+        compcount = 0
+        return;
+    }
+    else{
+        alert("That is not an answer")
+        playerSelection = "start"
+    }
+}
+    // add button selections later
+
     const computerSelection = computerPlay()
     console.log("player: " + playerSelection)
     console.log("computer: " + computerSelection)
@@ -84,8 +106,21 @@ while(gamecount<5){
         console.log("player = " + playercount)
         console.log("computer = " + compcount)
     }
-
     gamecount++
+    playerSelection = null
     console.log("\n")
 }
+
+if(playercount<compcount){
+    console.log("COMPUTER WINS THE GAME!")
+}
+else if (compcount<playercount){
+    console.log("YOU WIN THE GAME!")
+}
+else{console.log("DRAW, NO ONE WINS.")}
+
+// refresh counts for the next game to execute if wanted
+gamecount = 0
+playercount = 0
+compcount = 0
 }
