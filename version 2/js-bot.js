@@ -3,7 +3,22 @@
 let playercount=0
 let compcount=0
 let gamecount=0
+const rock = document.getElementById("rock")
+const paper = document.getElementById("paper")
+const scissor = document.getElementById("scissor")
+const reset = document.getElementById("reset")
 
+rock.addEventListener("click", function (){ return ("rock")})
+paper.addEventListener("click", function (){ return ("paper")})
+scissor.addEventListener("click", function (){ return ("scissor")})
+reset.addEventListener("click", function (){
+    playercount = 0
+    compcount = 0
+    gamecount = 0
+ })
+
+
+/*
 startgame()
 function startgame(){
 let butt=document.querySelector(`.start`) // back tick makes a difference?
@@ -12,7 +27,7 @@ butt.addEventListener("click", function(){
 }
 )}
 
-/* =========== functions ========== */
+// =========== functions ==========
 
 // AI chooses their hand
 function computerPlay(){
@@ -56,38 +71,19 @@ function computerPlay(){
     }
 }
 
+// button choosing
+function select(){
+
+}
+
 // play game!
 function game(){
     ///////////////////////
     //   FOR NON BUTTON //
     //////////////////////
 while(gamecount<5){
-    playerSelection="start"
-    while ( playerSelection == "start" ){ // this will force the player to input a correct choice
-     playerSelection = prompt("what is ur hand?")
-     if (playerSelection != null){
-        playerSelection = playerSelection.toLowerCase()
-     }
-     if (playerSelection == "rokku"){
-         playerSelection = "rokku!"
-     }
-     else if (playerSelection == "scissor"){
-         playerSelection = "scissor!"
-     }
-     else if (playerSelection == "paper"){
-         playerSelection = "paper!"
-    }
-    else if ( playerSelection == null){
-        gamecount = 0
-        playercount = 0
-        compcount = 0
-        return;
-    }
-    else{
-        alert("That is not an answer")
-        playerSelection = "start"
-    }
-}
+
+
 
     const computerSelection = computerPlay()
     console.log("player: " + playerSelection)
@@ -125,4 +121,4 @@ else{console.log("DRAW, NO ONE WINS.")}
 gamecount = 0
 playercount = 0
 compcount = 0
-}
+} */

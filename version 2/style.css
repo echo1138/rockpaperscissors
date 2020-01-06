@@ -10,28 +10,35 @@
     position: relative;
   }
 
-  .selection{
-      text-decoration: none;
-      display: inline-block;
-      border: none;
-      padding: 10px 10px;
-      margin: 10px;
+.selection{
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    padding: 10px 10px;
+    margin: 10px;
 
   }
 
   .center{
-        text-align: center;
-        top: 50%;
-        left: 50%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
   }
 
-#rock{
+#rock:hover{
     border: none;
+    cursor: pointer;
   }
 
-#paper{
+#paper:hover{
     border: none;
+    cursor: pointer;
 }
-#scissor{
+#scissor:hover{
     border: none;
+    cursor: pointer;
+}
+#reset:hover{
+  border: none;
+  cursor: pointer;
 }
