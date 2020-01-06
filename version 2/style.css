@@ -1,0 +1,37 @@
+.start {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    position: relative;
+  }
+
+  .selection{
+      text-decoration: none;
+      display: inline-block;
+      border: none;
+      padding: 10px 10px;
+      margin: 10px;
+
+  }
+
+  .center{
+        text-align: center;
+        top: 50%;
+        left: 50%;
+  }
+
+#rock{
+    border: none;
+  }
+
+#paper{
+    border: none;
+}
+#scissor{
+    border: none;
+}

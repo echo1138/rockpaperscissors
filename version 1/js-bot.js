@@ -58,6 +58,9 @@ function computerPlay(){
 
 // play game!
 function game(){
+    ///////////////////////
+    //   FOR NON BUTTON //
+    //////////////////////
 while(gamecount<5){
     playerSelection="start"
     while ( playerSelection == "start" ){ // this will force the player to input a correct choice
@@ -85,7 +88,6 @@ while(gamecount<5){
         playerSelection = "start"
     }
 }
-    // add button selections later
 
     const computerSelection = computerPlay()
     console.log("player: " + playerSelection)
